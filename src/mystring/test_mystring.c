@@ -15,11 +15,13 @@ int main()
 	char buffer[SIZE];
 
 	assert(mystrlen("cmpt 300") == 8);
+	assert(mystrlen("") == 0);
+	//non ascii characters?
+	//super long string
 
-	mystrcpy(buffer, "I am testing my string functions!");
-	assert(strcmp(buffer, "I am testing my string functions!") == 0);
-
-
+	mystrcpy(buffer, "adam");
+	printf("%s \n", buffer);
+	assert(mystrcmp(buffer, "adam") == 0);
 	assert(mystrcmp ("I love coding", "I love coding") == 0);
 
 	char *dupStr = mystrdup(buffer);

@@ -1,5 +1,6 @@
 #include "mystring.h"
 #include <stdio.h>
+#include <stdlib.h>
 
 /*
  *   Implement the following functions: 
@@ -15,8 +16,15 @@
  */
 int mystrlen (const char *s) 
 {
-	/* Complete the body of the function */
-	return 0;
+	int count = 0;
+	for (int i = 0; ; i++) {
+		if (s[i] == '\0') {
+			break;
+		}
+		else
+			count++;
+	}
+	return count;
 }
 
 /*
@@ -26,8 +34,13 @@ int mystrlen (const char *s)
  */
 char  *mystrcpy (char *dst, const char *src)
 {
-	/* Complete the body of the function */
-	return NULL;
+	int srcLen = mystrlen(src);
+
+	for (int i = 0; i < srcLen + 1; i++) {
+		dst[i] = src[i];
+	}
+
+	return dst;
 }
 
 /*
@@ -39,8 +52,27 @@ char  *mystrcpy (char *dst, const char *src)
  */
 int mystrcmp(const char *s1, const char *s2)
 {
-	/* Complete the body of the function */
-	return 0;
+	//todo figure out what to do when comparing apple and applepie
+
+	int l1 = mystrlen(s1);
+	int l2 = mystrlen(s2);
+
+	if (l1 < l2)
+		return -1;
+	else if (l2 < l1)
+		return 1;
+	else {
+		for (int i = 0; i < l1; i++) {
+			if (s1[i] == s2[i])
+				continue;
+			else if (s1[i] < s2[i])
+				return -1;
+			else if (s2[i] < s1[i])
+				return 1;
+		}
+	}
+
+	return 0; //if we get here the strings are equal
 }
 
 /*
@@ -53,7 +85,19 @@ int mystrcmp(const char *s1, const char *s2)
  */
 char *mystrdup(const char *s1)
 {
-	/* Complete the body of the function */
-	return NULL;
+	int l1 = mystrlen(s1);
+
+	char *dupl = (char *) malloc(sizeof(char) * (l1 + 1));
+
+	if (dupl == 0) {
+		printf("ERROR: Insufficient memory\n");
+		return NULL;
+	}
+
+	for (int i = 0; i < l1 + 1; i++) {
+		dupl[i] = s1[i];
+	}
+
+	return dupl;
 }
 

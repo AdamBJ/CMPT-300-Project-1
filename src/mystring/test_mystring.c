@@ -22,10 +22,11 @@ int main()
 	mystrcpy(buffer, "adam");
 	printf("%s \n", buffer);
 	assert(mystrcmp(buffer, "adam") == 0);
+	assert(mystrcmp(buffer, "ADAM") != 0);
 	assert(mystrcmp ("I love coding", "I love coding") == 0);
 
 	char *dupStr = mystrdup(buffer);
-	assert (!strcmp(buffer, dupStr));
+	assert (!mystrcmp(buffer, dupStr));
 	assert (buffer != dupStr);
 
 	if (dupStr != NULL)

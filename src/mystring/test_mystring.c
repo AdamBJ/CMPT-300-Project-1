@@ -16,12 +16,14 @@ int main()
 
 	assert(mystrlen("cmpt 300") == 8);
 	assert(mystrlen("") == 0);
-	//non ascii characters?
-	//super long string
 
+	assert(mystrcmp("adam", "") == 1);
+	assert(mystrcmp("", "adam") == -1);
 	mystrcpy(buffer, "adam");
-	printf("%s \n", buffer);
 	assert(mystrcmp(buffer, "adam") == 0);
+	assert(mystrcmp(buffer, "adampie") == -1);
+	assert(mystrcmp("applepie", "apple") == 1);
+	assert(mystrcmp("", "") == 0);
 	assert(mystrcmp(buffer, "ADAM") != 0);
 	assert(mystrcmp ("I love coding", "I love coding") == 0);
 

@@ -18,9 +18,8 @@ int mystrlen (const char *s)
 {
 	int count = 0;
 	for (int i = 0; ; i++) {
-		if (s[i] == '\0') {
+		if (s[i] == '\0')
 			break;
-		}
 		else
 			count++;
 	}
@@ -36,7 +35,7 @@ char  *mystrcpy (char *dst, const char *src)
 {
 	int srcLen = mystrlen(src);
 
-	for (int i = 0; i < srcLen + 1; i++) {
+	for (int i = 0; i <= srcLen; i++) {
 		dst[i] = src[i];
 	}
 
@@ -52,24 +51,16 @@ char  *mystrcpy (char *dst, const char *src)
  */
 int mystrcmp(const char *s1, const char *s2)
 {
-	//todo figure out what to do when comparing apple and applepie
+	int strLen, s1Len = mystrlen(s1), s2Len = mystrlen(s2);
+	strLen = s1Len > s2Len ? s1Len : s2Len;
 
-	int l1 = mystrlen(s1);
-	int l2 = mystrlen(s2);
-
-	if (l1 < l2)
-		return -1;
-	else if (l2 < l1)
-		return 1;
-	else {
-		for (int i = 0; i < l1; i++) {
-			if (s1[i] == s2[i])
-				continue;
-			else if (s1[i] < s2[i])
-				return -1;
-			else if (s2[i] < s1[i])
-				return 1;
-		}
+	for (int i = 0; i < strLen; i++) {
+		if (s1[i] == s2[i])
+			continue;
+		else if (s1[i] < s2[i])
+			return -1;
+		else if (s2[i] < s1[i])
+			return 1;
 	}
 
 	return 0; //if we get here the strings are equal
@@ -94,7 +85,7 @@ char *mystrdup(const char *s1)
 		return NULL;
 	}
 
-	for (int i = 0; i < l1 + 1; i++) {
+	for (int i = 0; i <= l1; i++) {
 		dupl[i] = s1[i];
 	}
 

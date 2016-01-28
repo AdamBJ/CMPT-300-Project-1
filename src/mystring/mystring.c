@@ -51,10 +51,10 @@ char  *mystrcpy (char *dst, const char *src)
  */
 int mystrcmp(const char *s1, const char *s2)
 {
-	int strLen, s1Len = mystrlen(s1), s2Len = mystrlen(s2);
-	strLen = s1Len > s2Len ? s1Len : s2Len;
+	int maxStrLen, s1Len = mystrlen(s1), s2Len = mystrlen(s2);
+	maxStrLen = s1Len > s2Len ? s1Len : s2Len;
 
-	for (int i = 0; i < strLen; i++) {
+	for (int i = 0; i < maxStrLen; i++) {
 		if (s1[i] == s2[i])
 			continue;
 		else if (s1[i] < s2[i])
